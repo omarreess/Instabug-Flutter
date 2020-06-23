@@ -67,6 +67,7 @@ jobs:
       - image: cirrusci/flutter
     steps:
       - checkout
+      - run: bundle update --bundler
       - run: bundle check || sudo bundle install        
       - run: bundle exec danger
       - run: flutter doctor
@@ -103,6 +104,9 @@ jobs:
       - run: 
           name: Flutter build
           command: cd ..; flutter build aot
+      - run:
+          name: Update CocoaPods
+          command: pod update
       - run:
           name: Install CocoaPods
           command: pod install --repo-update

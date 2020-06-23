@@ -11,6 +11,7 @@ import com.instabug.bug.BugReporting;
 import com.instabug.bug.invocation.Option;
 import com.instabug.chat.Chats;
 import com.instabug.chat.Replies;
+import com.instabug.crash.CrashReporting;
 import com.instabug.featuresrequest.FeatureRequests;
 import com.instabug.library.Feature;
 import com.instabug.library.Instabug;
@@ -38,6 +39,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -927,6 +929,44 @@ public class InstabugFlutterPlugin implements MethodCallHandler {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    /*
+     * Enables and disables automatic crash reporting.
+     * 
+     * @param {boolean} isEnabled
+     */
+    public void setCrashReportingEnabled(final boolean isEnabled) {
+        new Handler(Looper.getMainLooper()).post(new Runnable() {
+            @Override
+            public void run() {
+                if (isEnabled) {
+                    CrashReporting.setState(Feature.State.ENABLED);
+                } else {
+                    CrashReporting.setState(Feature.State.DISABLED);
+                }
+            }
+        });
+    }
+
+    public void sendJSCrashByReflection(final String map, final boolean isHandled) {
+        new Handler(Looper.getMainLooper()).post(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    final JSONObject exceptionObject = new JSONObject(map);
+                    Method method = getMethod(Class.forName("com.instabug.crash.CrashReporting"), "reportException",
+                            JSONObject.class, boolean.class);
+                    if (method != null) {
+                        method.invoke(null, exceptionObject, isHandled);
+                        Log.e("IBG-Flutter", exceptionObject.toString());
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
     }
 
 }

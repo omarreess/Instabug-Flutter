@@ -59,13 +59,14 @@ FlutterMethodChannel* channel;
 + (void)startWithToken:(NSString *)token invocationEvents:(NSArray*)invocationEventsArray {
     SEL setPrivateApiSEL = NSSelectorFromString(@"setCurrentPlatform:");
     if ([[Instabug class] respondsToSelector:setPrivateApiSEL]) {
-        NSInteger *platformId = IBGPlatformFlutter;
+        NSInteger *platformID = IBGPlatformFlutter;
         NSInvocation *inv = [NSInvocation invocationWithMethodSignature:[[Instabug class] methodSignatureForSelector:setPrivateApiSEL]];
         [inv setSelector:setPrivateApiSEL];
         [inv setTarget:[Instabug class]];
-        [inv setArgument:&(platformId) atIndex:2];
+        [inv setArgument:&(platformID) atIndex:2];
         [inv invoke];
     }
+
     NSDictionary *constants = [self constants];
     NSInteger invocationEvents = IBGInvocationEventNone;
     for (NSString * invocationEvent in invocationEventsArray) {
@@ -765,6 +766,28 @@ FlutterMethodChannel* channel;
         [inv invoke];
     }
 }
+
+  /* Enables and disables automatic crash reporting.
+  * @param {boolean} isEnabled
+  */
++ (void)setCrashReportingEnabled:(NSNumber *)isEnabled {
+   BOOL boolValue = [isEnabled boolValue];
+   IBGCrashReporting.enabled = boolValue;
+}
+
++ (void)sendJSCrashByReflection:(NSString *) jsonString handled: (NSNumber *) isHandled{
+     NSError *jsonError;
+     NSData *objectData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+     NSDictionary *stackTrace = [NSJSONSerialization JSONObjectWithData:objectData
+                                                          options:NSJSONReadingMutableContainers
+                                                            error:&jsonError];
+    SEL reportCrashWithStackTraceSEL = NSSelectorFromString(@"reportCrashWithStackTrace:handled:");
+      if ([[Instabug class] respondsToSelector:reportCrashWithStackTraceSEL]) {
+            [[Instabug class] performSelector:reportCrashWithStackTraceSEL withObject:stackTrace withObject:isHandled];
+        }
+    
+}
+
 
 /**
   * Sets the Repro Steps mode
