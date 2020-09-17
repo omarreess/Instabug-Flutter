@@ -1,3 +1,8 @@
+## v9.1.7 (2020-09-17)
+
+* Adds support for the Azerbaijani locale
+* Bumps Instabug Native SDKs to v9.1.7
+
 ## v9.1.6 (2020-07-13)
 
 * Added CrashReporting
