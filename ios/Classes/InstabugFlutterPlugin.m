@@ -843,7 +843,6 @@ FlutterMethodChannel* channel;
       @"InvocationOption.emailFieldOptional": @(IBGBugReportingOptionEmailFieldOptional),
 
       @"IBGLocale.arabic": @(IBGLocaleArabic),
-      @"IBGLocale.azerbaijani": @(IBGLocaleAzerbaijani),
       @"IBGLocale.chineseSimplified": @(IBGLocaleChineseSimplified),
       @"IBGLocale.chineseTraditional": @(IBGLocaleChineseTraditional),
       @"IBGLocale.czech": @(IBGLocaleCzech),
