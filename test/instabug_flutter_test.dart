@@ -117,6 +117,19 @@ void main() {
     ]);
   });
 
+  test('setSdkDebugLogsLevel:', () async {
+    Instabug.setSdkDebugLogsLevel(IBGSDKDebugLogsLevel.verbose);
+    final List<dynamic> args = <dynamic>[
+      IBGSDKDebugLogsLevel.verbose.toString()
+    ];
+    expect(log, <Matcher>[
+      isMethodCall(
+        'setSdkDebugLogsLevel:',
+        arguments: args,
+      )
+    ]);
+  });
+
   test('logVerbose: Test', () async {
     InstabugLog.logVerbose(message);
     final List<dynamic> args = <dynamic>[message];
@@ -386,7 +399,8 @@ void main() {
     final List<dynamic> args = <dynamic>[screenName];
     Instabug.reportScreenChange(screenName);
     expect(log, <Matcher>[
-      isMethodCall('reportScreenChange:',
+      isMethodCall(
+        'reportScreenChange:',
         arguments: args,
       )
     ]);
@@ -396,7 +410,8 @@ void main() {
     final List<dynamic> args = <dynamic>[ReproStepsMode.enabled.toString()];
     Instabug.setReproStepsMode(ReproStepsMode.enabled);
     expect(log, <Matcher>[
-      isMethodCall('setReproStepsMode:',
+      isMethodCall(
+        'setReproStepsMode:',
         arguments: args,
       )
     ]);
