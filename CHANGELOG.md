@@ -1,4 +1,4 @@
-## master
+## v9.1.8 (2021-02-08)
 
 * Fixes an issue with iOS invocation events causing the welcome message not to show.
 
