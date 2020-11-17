@@ -7,11 +7,12 @@ description: >-
   your user's device including all console logs, server-side network requests 
   and bug reproduction steps compiling all these details in one organised dashboard
   to help you debug and fix bugs faster.
+author: Instabug <support@instabug.com>
 homepage: https://github.com/Instabug/Instabug-Flutter#readme
 documentation: https://github.com/Instabug/Instabug-Flutter#readme
 
 environment:
-  sdk:  ">=2.1.0 <3.0.0"
+  sdk: ">=2.0.0-dev.68.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -26,9 +27,5 @@ dev_dependencies:
 
 flutter:
   plugin:
-   platforms:
-      android:
-        package: com.instabug.instabugflutter
-        pluginClass: InstabugFlutterPlugin
-      ios:
-        pluginClass: InstabugFlutterPlugin
+    androidPackage: com.instabug.instabugflutter
+    pluginClass: InstabugFlutterPlugin
