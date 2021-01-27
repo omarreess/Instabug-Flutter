@@ -417,7 +417,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-instabug_flutter_exampleUITests/Pods-instabug_flutter_exampleUITests-frameworks.sh",
-				"${PODS_ROOT}/../.symlinks/flutter/ios/Flutter.framework",
+				"${PODS_ROOT}/Flutter/Flutter.framework",
 				"${PODS_ROOT}/Instabug/Instabug.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -451,7 +451,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-frameworks.sh",
-				"${PODS_ROOT}/../.symlinks/flutter/ios/Flutter.framework",
+				"${PODS_ROOT}/Flutter/Flutter.framework",
 				"${PODS_ROOT}/Instabug/Instabug.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
