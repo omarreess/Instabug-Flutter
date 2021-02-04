@@ -40,7 +40,7 @@ jobs:
           background: true
       - run:
           name: download flutter SDK
-          command: if ! test -f "flutter_sdk.zip"; then curl -o flutter_sdk.zip https://storage.googleapis.com/flutter_infra/releases/stable/macos/flutter_macos_1.22.6-stable.zip; fi
+          command: if ! test -f "flutter_sdk.zip"; then curl -o flutter_sdk.zip https://storage.googleapis.com/flutter_infra/releases/stable/macos/flutter_macos_1.20.4-stable.zip; fi
       - run:
           name: unzip flutter SDK
           command: unzip flutter_sdk.zip
@@ -74,34 +74,35 @@ jobs:
    ios_tests:
     macos:
       xcode: "12.3.0"
-    working_directory: ~/project/example/ios
+    working_directory: ~/project/example
     environment:
       FL_OUTPUT_DIR: output
     steps:
       - checkout:
           path: ~/project
       - run:
-          name: download flutter SDK
-          command: if ! test -f "flutter_sdk.zip"; then curl -o flutter_sdk.zip https://storage.googleapis.com/flutter_infra/releases/stable/macos/flutter_macos_1.22.6-stable.zip; fi
-      - run:
-          name: unzip flutter SDK
-          command: unzip flutter_sdk.zip
-      - run:
-          name: export flutter path
-          command: echo 'export PATH="$PATH:`pwd`/flutter/bin"'  >> $BASH_ENV 
-      - run:
           name: Install CocoaPods
           command: sudo gem install cocoapods
-      - run: flutter doctor -v
+      - run:
+          name: download flutter SDK
+          command: if ! test -f "~/Downloads/flutter_sdk.zip"; then curl -o ~/Downloads/flutter_sdk.zip https://storage.googleapis.com/flutter_infra/releases/stable/macos/flutter_macos_1.20.4-stable.zip; fi
+      - run:
+          name: unzip flutter SDK
+          command: unzip ~/Downloads/flutter_sdk.zip -d ~/Library
+      - run:
+          name: export flutter path
+          command: echo 'export PATH="$PATH:~/Library/flutter/bin"'  >> $BASH_ENV 
+      - run: flutter doctor
+      - run: flutter pub get
       - run:
           name: Install Pods
-          command: pod install --repo-update
+          command: cd ios && pod install --repo-update
       - run: 
           name: Flutter build
-          command: cd ..; flutter build ios
+          command: flutter build aot
       - run:
           name: Build and run tests
-          command:  xcodebuild   -workspace Runner.xcworkspace   -scheme Runner   -sdk iphonesimulator   -destination 'platform=iOS Simulator,name=iPhone 12 Pro Max,OS=14.3'   test | xcpretty
+          command: cd ios && xcodebuild  -allowProvisioningUpdates   -workspace Runner.xcworkspace   -scheme Runner   -sdk iphonesimulator   -destination 'platform=iOS Simulator,name=iPhone 12 Pro Max,OS=14.3'   test | xcpretty
 
    release:
     docker:
