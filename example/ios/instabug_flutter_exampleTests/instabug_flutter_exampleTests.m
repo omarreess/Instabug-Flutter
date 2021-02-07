@@ -6,9 +6,9 @@
 //  Copyright © 2019 The Chromium Authors. All rights reserved.
 //
 
-#import <XCTest/XCTest.h>
-#import "OCMock/OCMock.h"
-#import "InstabugFlutterPlugin.h"
+#import "XCTest/XCTest.h"
+// #import "OCMock/OCMock.h"
+// #import "InstabugFlutterPlugin.h"
 
 @interface instabug_flutter_exampleTests : XCTestCase
 
@@ -20,7 +20,7 @@
     id mock = OCMClassMock([InstabugFlutterPlugin class]);
     InstabugFlutterPlugin *instabug = [[InstabugFlutterPlugin alloc] init];
     id result;
-    
+
     NSArray *arguments = [NSArray arrayWithObjects:@"WelcomeMessageMode.live", nil];
     FlutterMethodCall *call = [FlutterMethodCall methodCallWithMethodName:@"showWelcomeMessageWithMode:" arguments:arguments];
     [[[mock stub] classMethod] showWelcomeMessageWithMode:@"WelcomeMessageMode.live"];
@@ -32,7 +32,7 @@
     id mock = OCMClassMock([InstabugFlutterPlugin class]);
     InstabugFlutterPlugin *instabug = [[InstabugFlutterPlugin alloc] init];
     id result;
-    
+
     NSArray *arguments = [NSArray arrayWithObjects:@"test@test.com", @"name", nil];
     FlutterMethodCall *call = [FlutterMethodCall methodCallWithMethodName:@"identifyUserWithEmail:name:" arguments:arguments];
     [[[mock stub] classMethod] identifyUserWithEmail:@"test@test.com"name:@"name"];
@@ -44,7 +44,7 @@
     id mock = OCMClassMock([InstabugFlutterPlugin class]);
     InstabugFlutterPlugin *instabug = [[InstabugFlutterPlugin alloc] init];
     id result;
-    
+
     FlutterMethodCall *call = [FlutterMethodCall methodCallWithMethodName:@"logOut" arguments:NULL];
     [[[mock stub] classMethod] logOut];
     [instabug  handleMethodCall:call result:result];
@@ -55,7 +55,7 @@
     id mock = OCMClassMock([InstabugFlutterPlugin class]);
     InstabugFlutterPlugin *instabug = [[InstabugFlutterPlugin alloc] init];
     id result;
-    
+
     NSArray *tags = [NSArray arrayWithObjects:@"tag1", @"tag2", nil];
     NSArray *arguments = [NSArray arrayWithObjects: tags, nil];
     FlutterMethodCall *call = [FlutterMethodCall methodCallWithMethodName:@"appendTags:" arguments:arguments];
@@ -68,7 +68,7 @@
     id mock = OCMClassMock([InstabugFlutterPlugin class]);
     InstabugFlutterPlugin *instabug = [[InstabugFlutterPlugin alloc] init];
     id result;
-    
+
     NSArray *options = [NSArray arrayWithObjects:@"commentFieldRequired", @"disablePostSendingDialog", nil];
     NSArray *arguments = [NSArray arrayWithObjects:@"bug", options, nil];
     FlutterMethodCall *call = [FlutterMethodCall methodCallWithMethodName:@"showBugReportingWithReportTypeAndOptions:options:" arguments:arguments];
@@ -81,7 +81,7 @@
     id mock = OCMClassMock([InstabugFlutterPlugin class]);
     InstabugFlutterPlugin *instabug = [[InstabugFlutterPlugin alloc] init];
     id result;
-    
+
     NSArray *arguments = [NSArray arrayWithObjects:@(1), nil];
     FlutterMethodCall *call = [FlutterMethodCall methodCallWithMethodName:@"setSessionProfilerEnabled:" arguments:arguments];
     [[[mock stub] classMethod] setSessionProfilerEnabled:@(1)];
@@ -93,7 +93,7 @@
     id mock = OCMClassMock([InstabugFlutterPlugin class]);
     InstabugFlutterPlugin *instabug = [[InstabugFlutterPlugin alloc] init];
     id result;
-    
+
     NSArray *arguments = [NSArray arrayWithObjects:@(1123123123121), nil];
     FlutterMethodCall *call = [FlutterMethodCall methodCallWithMethodName:@"setPrimaryColor:" arguments:arguments];
     [[[mock stub] classMethod] setPrimaryColor:@(1123123123121)];
@@ -105,7 +105,7 @@
     id mock = OCMClassMock([InstabugFlutterPlugin class]);
     InstabugFlutterPlugin *instabug = [[InstabugFlutterPlugin alloc] init];
     id result;
-    
+
     FlutterStandardTypedData *data;
     NSArray *arguments = [NSArray arrayWithObjects:data, nil];
     FlutterMethodCall *call = [FlutterMethodCall methodCallWithMethodName:@"addFileAttachmentWithData:" arguments:arguments];
@@ -118,7 +118,7 @@
     id mock = OCMClassMock([InstabugFlutterPlugin class]);
     InstabugFlutterPlugin *instabug = [[InstabugFlutterPlugin alloc] init];
     id result;
-    
+
     NSArray *arguments = [NSArray arrayWithObjects:@(1),@(1),@(1),@(1), nil];
     FlutterMethodCall *call = [FlutterMethodCall methodCallWithMethodName:@"setEnabledAttachmentTypes:extraScreenShot:galleryImage:screenRecording:" arguments:arguments];
     [[[mock stub] classMethod] setEnabledAttachmentTypes:@(1) extraScreenShot:@(1) galleryImage:@(1) screenRecording:@(1) ];
@@ -130,7 +130,7 @@
     id mock = OCMClassMock([InstabugFlutterPlugin class]);
     InstabugFlutterPlugin *instabug = [[InstabugFlutterPlugin alloc] init];
     id result;
-    
+
     NSArray *actions = [NSArray arrayWithObjects:@"reportBug", @"requestNewFeature", nil];
     NSArray *arguments = [NSArray arrayWithObjects:@(1), actions, nil];
     FlutterMethodCall *call = [FlutterMethodCall methodCallWithMethodName:@"setEmailFieldRequiredForFeatureRequests:forAction:" arguments:arguments];

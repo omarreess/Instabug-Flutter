@@ -6,7 +6,7 @@
 //  Copyright © 2019 The Chromium Authors. All rights reserved.
 //
 
-#import <XCTest/XCTest.h>
+#import "XCTest/XCTest.h"
 
 @interface instabug_flutter_exampleUITests : XCTestCase
 
