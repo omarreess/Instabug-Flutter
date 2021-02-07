@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:io' show Platform;
 import 'package:flutter/material.dart';
 import 'package:instabug_flutter/Instabug.dart';
-import 'package:instabug_flutter/InstabugLog.dart';
 import 'package:instabug_flutter/BugReporting.dart';
 import 'package:instabug_flutter/Surveys.dart';
 import 'package:instabug_flutter/FeatureRequests.dart';
@@ -35,7 +34,6 @@ class _MyAppState extends State<MyApp> {
       Instabug.start('efa41f402620b5654f2af2b86e387029',
           <InvocationEvent>[InvocationEvent.floatingButton]);
     }
-    InstabugLog.logVerbose('VERBOOOOOOSE');
     initPlatformState();
   }
 
