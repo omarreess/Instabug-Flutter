@@ -73,16 +73,22 @@ jobs:
 
    ios_tests:
     macos:
-      xcode: "12.3.0"
+      xcode: "11.0.0"
     working_directory: ~/project/example
     environment:
       FL_OUTPUT_DIR: output
     steps:
       - checkout:
           path: ~/project
+      # - run:
+      #     name: Brew cleanup
+      #     command: brew cleanup -d -v
+          # command: curl -sSL https://raw.githubusercontent.com/rvm/rvm/master/binscripts/rvm-installer | bash -s stable
+      # - run: brew link cocoapods
       - run:
           name: Install CocoaPods
-          command: sudo gem install cocoapods
+          command: curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh  | bash -s cf
+          # command: sudo gem install cocoapods
       - run:
           name: download flutter SDK
           command: if ! test -f "~/Downloads/flutter_sdk.zip"; then curl -o ~/Downloads/flutter_sdk.zip https://storage.googleapis.com/flutter_infra/releases/stable/macos/flutter_macos_1.20.4-stable.zip; fi
@@ -102,7 +108,7 @@ jobs:
           command: flutter build aot
       - run:
           name: Build and run tests
-          command: cd ios && xcodebuild  -allowProvisioningUpdates   -workspace Runner.xcworkspace   -scheme Runner   -sdk iphonesimulator   -destination 'platform=iOS Simulator,name=iPhone 12 Pro Max,OS=14.3'   test | xcpretty
+          command: cd ios && xcodebuild  -allowProvisioningUpdates   -workspace Runner.xcworkspace   -scheme Runner   -sdk iphonesimulator   -destination 'platform=iOS Simulator,name=iPhone 11 Pro Max,OS=13.0'   test | xcpretty
 
    release:
     docker:
@@ -126,31 +132,31 @@ workflows:
   version: 2
   build-test-and-approval-deploy:
     jobs:
-      - flutter_tests:
-          context: cross-platform
-      - android_tests
+      # - flutter_tests:
+      #     context: cross-platform
+      # - android_tests
       - ios_tests
-      - hold:
-          type: approval
-          requires:
-            - flutter_tests
-            - android_tests
-            - ios_tests
-          filters:
-            branches:
-              only: master
-      - publish:
-          context: cross-platform
-          requires:
-            - hold
-          filters:
-            branches:
-              only: master
-      - release:
-          context: cross-platform
-          requires:
-            - hold
-          filters:
-            branches:
-              only: master
+      # - hold:
+      #     type: approval
+      #     requires:
+      #       - flutter_tests
+      #       - android_tests
+      #       - ios_tests
+      #     filters:
+      #       branches:
+      #         only: master
+      # - publish:
+      #     context: cross-platform
+      #     requires:
+      #       - hold
+      #     filters:
+      #       branches:
+      #         only: master
+      # - release:
+      #     context: cross-platform
+      #     requires:
+      #       - hold
+      #     filters:
+      #       branches:
+      #         only: master
               

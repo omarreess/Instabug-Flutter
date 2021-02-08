@@ -7,8 +7,8 @@
 //
 
 #import "XCTest/XCTest.h"
-// #import "OCMock/OCMock.h"
-// #import "InstabugFlutterPlugin.h"
+#import <OCMock/OCMock.h>
+#import "InstabugFlutterPlugin.h"
 
 @interface instabug_flutter_exampleTests : XCTestCase
 
