@@ -282,19 +282,19 @@
 				TargetAttributes = {
 					97C146ED1CF9000F007C117D = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = XKKDNP2YZU;
+						DevelopmentTeam = 56S6Q9SA8U;
 						ProvisioningStyle = Automatic;
 					};
 					A0BE54C6230AC8B80016CD95 = {
 						CreatedOnToolsVersion = 10.1;
-						DevelopmentTeam = XKKDNP2YZU;
+						DevelopmentTeam = 56S6Q9SA8U;
 						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 97C146ED1CF9000F007C117D;
 					};
 					A0CE77B0227B03D600DE990D = {
 						CreatedOnToolsVersion = 10.1;
-						DevelopmentTeam = XKKDNP2YZU;
+						DevelopmentTeam = 56S6Q9SA8U;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 97C146ED1CF9000F007C117D;
 					};
@@ -537,7 +537,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = XKKDNP2YZU;
+				DEVELOPMENT_TEAM = 56S6Q9SA8U;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -667,7 +667,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = XKKDNP2YZU;
+				DEVELOPMENT_TEAM = 56S6Q9SA8U;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -695,7 +695,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = XKKDNP2YZU;
+				DEVELOPMENT_TEAM = 56S6Q9SA8U;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -727,7 +727,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XKKDNP2YZU;
+				DEVELOPMENT_TEAM = 56S6Q9SA8U;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = instabug_flutter_exampleUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
@@ -757,7 +757,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XKKDNP2YZU;
+				DEVELOPMENT_TEAM = 56S6Q9SA8U;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = instabug_flutter_exampleUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
@@ -785,7 +785,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XKKDNP2YZU;
+				DEVELOPMENT_TEAM = 56S6Q9SA8U;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = instabug_flutter_exampleUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
@@ -813,7 +813,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XKKDNP2YZU;
+				DEVELOPMENT_TEAM = 56S6Q9SA8U;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = instabug_flutter_exampleTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
@@ -840,7 +840,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XKKDNP2YZU;
+				DEVELOPMENT_TEAM = 56S6Q9SA8U;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = instabug_flutter_exampleTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
@@ -866,7 +866,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XKKDNP2YZU;
+				DEVELOPMENT_TEAM = 56S6Q9SA8U;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = instabug_flutter_exampleTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
