@@ -728,16 +728,4 @@ void main() {
     }
   });
 
-  ///Since the below method only runs on android and has the [Platform.isAndroid] condition in it, it will fail when running outside android,
-  /// therefore its commented.
-  // test('setEnableInAppNotificationSound: Test', () async {
-  //   bool isEnabled = false;
-  //   final List<dynamic> args = <dynamic>[isEnabled];
-  //   Replies.setInAppNotificationSound(isEnabled);
-  //   expect(log, <Matcher>[
-  //     isMethodCall('setEnableInAppNotificationSound:',
-  //       arguments: args,
-  //     )
-  //   ]);
-  // });
 }
